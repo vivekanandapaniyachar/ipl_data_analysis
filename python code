@@ -9,5 +9,20 @@ ipl['player_of_match'].value_counts()[0:10]
 list(ipl['player_of_match'].value_counts()[0:10].keys())
 plt.figure(figsize=(5,3))
 plt.bar(list(ipl['player_of_match'].value_counts()[0:5].keys()),list(ipl['player_of_match'].value_counts()[0:5]),color='y')
-plt.show()
-ipl['result'].value_counts()
+ipl['winner'].value_counts()
+batting_first=ipl[ipl['result']=='runs']
+batting_first.head()
+batting_first['winner'].value_counts()
+plt.bar(list(batting_first['winner'].value_counts()[0:10].keys()),list(ipl['winner'].value_counts()[0:10]),color='g')
+plt.title("distribution of winners by runs")
+plt.ylabel("Runs")
+plt.xlabel("Teams")
+batting_first=ipl[ipl['result']=='wickets']
+batting_first['winner'].value_counts()
+plt.bar(list(batting_first['winner'].value_counts()[0:10].keys()),list(ipl['winner'].value_counts()[0:10]),color='orange')
+plt.title("distribution of winners by wickets")
+plt.ylabel("wickets")
+plt.xlabel("Teams")
+plt.figure(figsize=(10,7))
+
+plt.pie(list(batting_first['winner'].value_counts()),labels=list(batting_first['winner'].value_counts().keys()),autopct='%0.1f%%')
