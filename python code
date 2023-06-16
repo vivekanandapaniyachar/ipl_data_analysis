@@ -1,0 +1,13 @@
+import pandas as pd
+import numpy as np
+from matplotlib import pyplot as plt
+import seaborn as sns
+ipl=pd.read_csv('ipl.csv')
+ipl.head()
+ipl.shape
+ipl['player_of_match'].value_counts()[0:10]
+list(ipl['player_of_match'].value_counts()[0:10].keys())
+plt.figure(figsize=(5,3))
+plt.bar(list(ipl['player_of_match'].value_counts()[0:5].keys()),list(ipl['player_of_match'].value_counts()[0:5]),color='y')
+plt.show()
+ipl['result'].value_counts()
